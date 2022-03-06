@@ -11,6 +11,15 @@ and copy the `nv_dispi.inf_amd64` folder to `C:\Windows\System32\HostDriverStore
 Next you will need to copy `C:\Windows\System32\nvapi64.dll` file from your host to `C:\Windows\System32\` on your VM
 And once that is done, you can restart the VM.
 
+## Restore VMGpuPartitionAdapter
+```batch
+Remove-VMGpuPartitionAdapter -VMName $yourvmname -ErrorAction SilentlyContinue
+```
+## Restore EnhancedSessionMode
+```batch
+Set-VMHost -EnableEnhancedSessionMode $True
+```
+
 ## if failed to run script, try running
 ```
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
